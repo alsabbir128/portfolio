@@ -144,7 +144,7 @@ body { background: #20242a; font-family: Arial, Helvetica, sans-serif; }
 .hero-visual { min-height: 470px; }
 .orbit { border-color: rgba(8,169,255,.35); border-style: solid; }
 .profile-card { width: 280px; height: 360px; padding: 1.8rem; border: 1px solid rgba(8,169,255,.5); border-radius: 12px; background: linear-gradient(145deg, #14283c, #09121e 68%); box-shadow: 0 0 0 12px rgba(8,169,255,.06), 0 25px 70px rgba(0,0,0,.38); }
-.profile-photo { border-color: rgba(8,169,255,.85); object-position: center 24%; filter: saturate(.92) contrast(1.04); }
+.profile-photo { border-color: rgba(8,169,255,.85); object-position: center 8%; filter: saturate(.92) contrast(1.04); }
 .profile-label, .floating-note span { color: var(--accent); }
 .profile-line { background: var(--accent); }
 .floating-note { border-color: rgba(8,169,255,.42); border-radius: 7px; background: #101f30; }
@@ -174,7 +174,7 @@ input:focus, textarea:focus { border-color: var(--accent); outline: 2px solid rg
 @media (min-width: 801px) {
   .site-header { position: fixed; inset: 0 auto 0 0; width: 106px; height: 100vh; padding: 1.15rem .65rem 1.5rem; flex-direction: column; justify-content: flex-start; gap: 2.4rem; border-right: 1px solid rgba(108,145,180,.16); border-bottom: 0; background: #061321; }
   .brand { flex-direction: column; gap: .45rem; text-align: center; }
-  .brand > img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 5px rgba(8,169,255,.06); }
+  .brand > img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; object-position: center 8%; box-shadow: 0 0 0 5px rgba(8,169,255,.06); }
   .brand > img + b { font-size: .56rem; }
   .brand b { font-size: .56rem; letter-spacing: .04em; }
   .site-nav { width: 100%; flex: 1; flex-direction: column; align-items: stretch; gap: .25rem; }
@@ -194,6 +194,6 @@ input:focus, textarea:focus { border-color: var(--accent); outline: 2px solid rg
 @media (max-width: 800px) {
   .site-header { position: sticky; }
   .site-nav a::before { display: none; }
-  .brand > img { width: 31px; height: 31px; border-radius: 50%; object-fit: cover; }
+  .brand > img { width: 31px; height: 31px; border-radius: 50%; object-fit: cover; object-position: center 8%; }
 }
 
