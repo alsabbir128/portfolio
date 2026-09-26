@@ -144,7 +144,7 @@ body { background: #20242a; font-family: Arial, Helvetica, sans-serif; }
 .hero-visual { min-height: 470px; }
 .orbit { border-color: rgba(8,169,255,.35); border-style: solid; }
 .profile-card { width: 280px; height: 360px; padding: 1.8rem; border: 1px solid rgba(8,169,255,.5); border-radius: 12px; background: linear-gradient(145deg, #14283c, #09121e 68%); box-shadow: 0 0 0 12px rgba(8,169,255,.06), 0 25px 70px rgba(0,0,0,.38); }
-.profile-photo { border-color: rgba(8,169,255,.85); }
+.profile-photo { border-color: rgba(8,169,255,.85); object-position: center 24%; filter: saturate(.92) contrast(1.04); }
 .profile-label, .floating-note span { color: var(--accent); }
 .profile-line { background: var(--accent); }
 .floating-note { border-color: rgba(8,169,255,.42); border-radius: 7px; background: #101f30; }

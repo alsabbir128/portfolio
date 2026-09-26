@@ -69,7 +69,7 @@ export default function Page() {
           </div>
           <div className="hero-visual">
             <div className="orbit orbit-a" /><div className="orbit orbit-b" />
-            <div className="profile-card"><img className="profile-photo" src={portfolioImages.portrait} alt="Abdullah Al Sabbir outdoors" /><span className="profile-label">CSE / WEB DEV</span><span className="profile-line" /><p>“Theory is a starting point.<br />Building is the real test.”</p></div>
+            <div className="profile-card"><img className="profile-photo" src="/images/abdullah-portrait.jpg" alt="Abdullah Al Sabbir smiling in a white shirt" /><span className="profile-label">CSE / WEB DEV</span><span className="profile-line" /><p>“Theory is a starting point.<br />Building is the real test.”</p></div>
             <div className="floating-note note-top"><span>01</span><b>Learn</b><small>every day</small></div><div className="floating-note note-bottom"><span>02</span><b>Build</b><small>with intention</small></div>
           </div>
         </section>
