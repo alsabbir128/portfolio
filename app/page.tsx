@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   ArrowUpRight,
   Check,
@@ -37,7 +37,27 @@ const portfolioImages = {
 
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('about')
   const [sent, setSent] = useState(false)
+
+  useEffect(() => {
+    const sections = navItems
+      .map((item) => document.getElementById(item.toLowerCase()))
+      .filter((section): section is HTMLElement => Boolean(section))
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+        if (visible) setActiveSection(visible.target.id)
+      },
+      { rootMargin: '-18% 0px -62% 0px', threshold: [0, 0.15, 0.4] },
+    )
+
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [])
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -50,9 +70,9 @@ export default function Page() {
       <div className="ambient ambient-one" aria-hidden="true" />
       <div className="ambient ambient-two" aria-hidden="true" />
       <header className="site-header">
-        <a href="#home" className="brand" aria-label="Abdullah Al Sabbir home"><span>AS</span><b>abdullah<span>.dev</span></b></a>
+        <a href="#home" className="brand" aria-label="Alsabbir.dev home"><img src="/images/abdullah-portrait.jpg" alt="Abdullah Al Sabbir smiling in a white shirt" /><b>alsabbir<span>.dev</span></b></a>
         <nav className={menuOpen ? 'site-nav is-open' : 'site-nav'} aria-label="Primary navigation">
-          {navItems.map((item) => <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)}>{item}</a>)}
+          {navItems.map((item) => { const sectionId = item.toLowerCase(); return <a key={item} href={`#${sectionId}`} className={activeSection === sectionId ? 'is-active' : ''} aria-current={activeSection === sectionId ? 'page' : undefined} onClick={() => { setActiveSection(sectionId); setMenuOpen(false) }}>{item}</a> })}
           <a className="nav-cta" href="#contact" onClick={() => setMenuOpen(false)}>Get in touch <ArrowUpRight aria-hidden="true" /></a>
         </nav>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen}>{menuOpen ? <X /> : <Menu />}</button>
@@ -69,7 +89,7 @@ export default function Page() {
           </div>
           <div className="hero-visual">
             <div className="orbit orbit-a" /><div className="orbit orbit-b" />
-            <div className="profile-card"><img className="profile-photo" src={portfolioImages.portrait} alt="Abdullah Al Sabbir outdoors" /><span className="profile-label">CSE / WEB DEV</span><span className="profile-line" /><p>“Theory is a starting point.<br />Building is the real test.”</p></div>
+            <div className="profile-card"><img className="profile-photo" src="/images/abdullah-portrait.jpg" alt="Abdullah Al Sabbir smiling in a white shirt" /><span className="profile-label">CSE / WEB DEV</span><span className="profile-line" /><p>“Theory is a starting point.<br />Building is the real test.”</p></div>
             <div className="floating-note note-top"><span>01</span><b>Learn</b><small>every day</small></div><div className="floating-note note-bottom"><span>02</span><b>Build</b><small>with intention</small></div>
           </div>
         </section>
@@ -86,7 +106,7 @@ export default function Page() {
 
         <section id="contact" className="contact-section"><div className="contact-intro"><p className="eyebrow">05 / Start a conversation</p><h2>Let&apos;s build something<br /><em>great together.</em></h2><p>Have a project, an idea, or just want to say hello? My inbox is always open.</p><div className="contact-links"><a href="mailto:abdullahals128@gmail.com"><Mail aria-hidden="true" /> abdullahals128@gmail.com</a><a href="https://linkedin.com/in/abdullah-al-sabbir-54b05b294" target="_blank" rel="noreferrer"><Network aria-hidden="true" /> LinkedIn profile</a></div></div><form className="contact-form" onSubmit={handleSubmit}><label>Name<input required name="name" placeholder="Your name" /></label><label>Email<input required type="email" name="email" placeholder="you@example.com" /></label><label>Subject<input required name="subject" placeholder="What&apos;s on your mind?" /></label><label>Message<textarea required name="message" rows={4} placeholder="Tell me a little about it..." /></label><button className="button button-primary" type="submit">{sent ? 'Message sent' : 'Send message'} {sent ? <Check aria-hidden="true" /> : <Send aria-hidden="true" />}</button></form></section>
       </div>
-      <footer className="site-footer"><a href="#home" className="brand"><span>AS</span><b>abdullah<span>.dev</span></b></a><p>© 2026 Abdullah Al Sabbir. Designed &amp; built with intention.</p><div><a href="https://github.com/alsabbir128" target="_blank" rel="noreferrer">GitHub</a><a href="https://linkedin.com/in/abdullah-al-sabbir-54b05b294" target="_blank" rel="noreferrer">LinkedIn</a><a href="mailto:abdullahals128@gmail.com">Email</a></div></footer>
+      <footer className="site-footer"><a href="#home" className="brand"><img src="/images/abdullah-portrait.jpg" alt="Abdullah Al Sabbir smiling in a white shirt" /><b>alsabbir<span>.dev</span></b></a><p>© 2026 Abdullah Al Sabbir. Designed &amp; built with intention.</p><div><a href="https://github.com/alsabbir128" target="_blank" rel="noreferrer">GitHub</a><a href="https://linkedin.com/in/abdullah-al-sabbir-54b05b294" target="_blank" rel="noreferrer">LinkedIn</a><a href="mailto:abdullahals128@gmail.com">Email</a></div></footer>
     </main>
   )
 }
