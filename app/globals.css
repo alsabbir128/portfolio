@@ -180,8 +180,8 @@ input:focus, textarea:focus { border-color: var(--accent); outline: 2px solid rg
   .site-nav { width: 100%; flex: 1; flex-direction: column; align-items: stretch; gap: .25rem; }
   .site-nav a { display: flex; align-items: center; gap: .42rem; padding: .55rem .35rem; border-radius: 4px; font-size: .58rem; color: #8ea2b7; }
   .site-nav a::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: #3e627e; flex: 0 0 auto; }
-  .site-nav a:hover, .site-nav a:first-child { color: #eaf5ff; background: rgba(8,169,255,.12); }
-  .site-nav a:hover::before, .site-nav a:first-child::before { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+  .site-nav a:hover, .site-nav a.is-active { color: #eaf5ff; background: rgba(8,169,255,.12); }
+  .site-nav a:hover::before, .site-nav a.is-active::before { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
   .site-nav .nav-cta { margin-top: auto; justify-content: center; padding: .62rem .25rem; color: #031321; background: var(--accent); }
   .site-nav .nav-cta::before { display: none; }
   .content-wrap { max-width: none; margin-left: 106px; padding-inline: clamp(2rem, 7vw, 7rem); }
