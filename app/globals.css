@@ -174,7 +174,8 @@ input:focus, textarea:focus { border-color: var(--accent); outline: 2px solid rg
 @media (min-width: 801px) {
   .site-header { position: fixed; inset: 0 auto 0 0; width: 106px; height: 100vh; padding: 1.15rem .65rem 1.5rem; flex-direction: column; justify-content: flex-start; gap: 2.4rem; border-right: 1px solid rgba(108,145,180,.16); border-bottom: 0; background: #061321; }
   .brand { flex-direction: column; gap: .45rem; text-align: center; }
-  .brand > span { width: 54px; height: 54px; border-radius: 50%; font-size: .68rem; box-shadow: 0 0 0 5px rgba(8,169,255,.06); }
+  .brand > img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 5px rgba(8,169,255,.06); }
+  .brand > img + b { font-size: .56rem; }
   .brand b { font-size: .56rem; letter-spacing: .04em; }
   .site-nav { width: 100%; flex: 1; flex-direction: column; align-items: stretch; gap: .25rem; }
   .site-nav a { display: flex; align-items: center; gap: .42rem; padding: .55rem .35rem; border-radius: 4px; font-size: .58rem; color: #8ea2b7; }
@@ -193,5 +194,6 @@ input:focus, textarea:focus { border-color: var(--accent); outline: 2px solid rg
 @media (max-width: 800px) {
   .site-header { position: sticky; }
   .site-nav a::before { display: none; }
+  .brand > img { width: 31px; height: 31px; border-radius: 50%; object-fit: cover; }
 }
 
